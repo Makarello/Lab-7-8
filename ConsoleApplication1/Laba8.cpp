@@ -1,9 +1,9 @@
-﻿// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+// ConsoleApplication1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
 #include <stdio.h>
-#include < string.h >
+#include <string.h>
 #include <math.h>;
 
 
@@ -38,12 +38,12 @@ void Dlinna_Vector(int* a, int N)
 	int d, e, h;
 	float c;
 
-		d = *(a);
-		e = *(a + 1);
-		h = *(a + 2);
-		c = (float)d * (float)d + (float)e * (float)e + (float)h * (float)h;
-		c = sqrt(c);
-		printf("%f", c);
+	d = *(a);
+	e = *(a + 1);
+	h = *(a + 2);
+	c = (float)d * (float)d + (float)e * (float)e + (float)h * (float)h;
+	c = sqrt(c);
+	printf("%f", c);
 
 }
 
@@ -52,7 +52,7 @@ void Input_Vector(int* a)
 	int d;
 	for (int i = 0; i < 3; i++)
 	{
-		printf("\nVvedite koord %d: ", i+1);
+		printf("\nVvedite koord %d: ", i + 1);
 		scanf_s("%d", &d);
 		*(a + i) = d;
 
@@ -75,13 +75,8 @@ void Print_Vector(int* a)
 
 int main()
 {
-	int a, b;
-	int l = 0;
-	int* c;
-	int* d;
-	int* e;
-
-	c = (int*)malloc(3 * sizeof(int));
+	int a, b, * c, * d, * e, l = 0;
+	c = (int*)malloc(3 * sizeof(int)); // 3 - magic number. Лучше вынести как константу с комментарием, что это за число
 	d = (int*)malloc(3 * sizeof(int));
 	e = (int*)malloc(3 * sizeof(int));
 
@@ -90,7 +85,7 @@ int main()
 	char name[N];
 	char* p;
 	char help[5]{ "help" };
-	char plus[2] = "+";
+	char plus[2] = "+";		// латиницыей писать по русски - плохая идея, лучше сразу так не делать
 	char minus[2] = "-";
 	char exit[5] = "exit";
 	char dlinna[3] = "--";
@@ -99,16 +94,16 @@ int main()
 	char cc[3];
 
 	printf("vvedite chislo a:");
-		scanf_s("\n%d\n", &a);
+	scanf_s("\n%d\n", &a);
 	printf("\nvvedite chislo b:");
-		scanf_s("\n%d\n", &b);
+	scanf_s("\n%d\n", &b);
 
 
-		bool vihod = false;
-		system("pause");
+	bool vihod = false;
+	system("pause");
 	while (vihod == false)
 	{
-		printf("\nVvedite deystvie:");
+		printf("\nVvedite deystvie:"); //Не хватает user-friendly интерфейса. Непонятно, что за действие вводить
 		scanf_s("%s", name, N);
 
 		if (strcmp(plus, name) == 0)
@@ -148,7 +143,7 @@ int main()
 		else if (strcmp(exit, name) == 0)
 			vihod = true;
 
-		else 
+		else
 			printf("\nNeponyal poprobuy eshe\n");
 	}
 	vihod = false;
@@ -190,16 +185,10 @@ int main()
 			printf("\nNeponyal poprobuy eshe\n");
 	}
 
-	 free(e);
-	 free(d);
-	 free(c);
-		return 0;
-
-
-
-
-
+	free(e);
+	free(d);
+	free(c);
+	return 0;
 
 
 }
-
